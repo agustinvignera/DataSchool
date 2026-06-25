@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataSchool — Tableau Data Analytics + IA</title>
+  <meta name="description" content="Aprendé Tableau + Inteligencia Artificial con instructores certificados. 12 clases en vivo por Zoom, martes y jueves.">
+
+  <!-- Space Grotesk font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    // Pasar la URI base a JS para ubicar la secuencia de imágenes
+    window.themeUri = "";
+  </script>
+</head>
+<body>
+
+  <!-- Canvas para Secuencia Data Evolution -->
+  <canvas id="data-evolution-canvas" width="1920" height="1080"></canvas>
+
+  <!-- Indicador Discreto de Carga de Secuencia -->
+  <div id="sequence-loader" class="sequence-loading-indicator">
+    <span id="sequence-loader-text">0%</span>
+    <div class="sequence-loading-bar-wrapper">
+      <div id="sequence-loading-bar" class="sequence-loading-bar"></div>
+    </div>
+  </div>
+
+  <!-- Encabezado con efecto de reducción (Shrinking Header) -->
+  <header id="main-header" class="header">
+    <div class="container header-container">
+      <a href="/" class="logo" id="logo-link">
+        <img src="images/logo-white.png" class="logo-img" alt="DataSchool">
+      </a>
+
+      <nav class="nav" id="main-navigation" aria-label="Navegación principal">
+        <ul class="nav-list" id="primary-menu">
+          <li><a href="#why-us">Por qué DataSchool</a></li>
+          <li><a href="#courses">Cursos</a></li>
+          <li><a href="#testimonials">Testimonios</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Toggle de Tema -->
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Alternar tema oscuro/claro" title="Cambiar tema">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/><path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/><path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
+        <a href="#contact" class="btn btn-secondary btn-sm nav-cta">Inscribirme</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content reveal-on-scroll">
+          <div class="badge">Tableau Data Analytics + IA · 100% online · en vivo</div>
+          <h1 class="hero-title">Transformá tus datos en <span>decisiones</span></h1>
+          <p class="hero-subtitle">Aprendé Tableau + Inteligencia Artificial con instructores certificados. 12 clases en vivo por Zoom, martes y jueves. Llevá tus visualizaciones al siguiente nivel.</p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Consultar inscripción</a>
+            <a href="#courses" class="btn btn-outline">Ver cursos</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">+500</span>
+              <span class="stat-label">Alumnos Certificados</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">12</span>
+              <span class="stat-label">Clases en Vivo</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Online (Zoom)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Logos Section -->
+    <section class="logos-section">
+      <div class="container">
+        <p class="logos-title">Empresas que confiaron en nosotros para capacitar a sus equipos:</p>
+        <div class="logos-grid">
+          <div class="logo-text-item" title="Nike">Nike</div>
+          <div class="logo-text-item" title="Bagó">Laboratorios Bagó</div>
+          <div class="logo-text-item" title="NCR">NCR Corporation</div>
+          <div class="logo-text-item" title="Farmacity">Farmacity</div>
+          <div class="logo-text-item" title="Grupo Andreani">Grupo Andreani</div>
+          <div class="logo-text-item" title="Mercado Libre">Mercado Libre</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Por Qué Section -->
+    <section id="why-us" class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Metodología DataSchool</div>
+          <h2 class="section-title">Formación que se siente en el trabajo</h2>
+          <p class="section-description">Diseñamos una experiencia práctica donde cada concepto se aplica directamente a resolver problemas reales de negocio.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Dashboards que convencen</h3>
+            <p class="feature-card-text">Aprendé a estructurar visualizaciones con impacto real y persuasivo en reuniones de negocio y presentaciones ante directivos.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Análisis en tiempo real</h3>
+            <p class="feature-card-text">Diseñá flujos conectados a fuentes en vivo. Tomá decisiones con datos actualizados al minuto, no con reportes estáticos del mes pasado.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Certificación oficial</h3>
+            <p class="feature-card-text">Capacitate con instructores certificados por Tableau. Recibí tu credencial digital y certificado formal de finalización de curso.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m22 8-6 4 6 4V8Z"/>
+                <rect width="14" height="12" x="2" y="6" rx="2" ry="2"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Clases en vivo + grabaciones</h3>
+            <p class="feature-card-text">Encuentros interactivos en vivo por Zoom con resolución de dudas al instante. Todas las grabaciones quedan subidas al portal del alumno.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">IA integrada desde el inicio</h3>
+            <p class="feature-card-text">La inteligencia artificial atraviesa todo el programa académico para optimizar tus análisis, no es un módulo teórico de relleno.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Casos reales de negocio</h3>
+            <p class="feature-card-text">Trabajá sobre casos prácticos del mercado financiero, retail y logística. Creá tu propio portfolio listo para presentar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cursos Section -->
+    <section id="courses" class="courses-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Nuestra Oferta Educativa</div>
+          <h2 class="section-title">Programas y Cursos de Especialización</h2>
+          <p class="section-description">Capacitaciones prácticas diseñadas para perfiles individuales y planes de upskilling corporativo adaptados a tu empresa.</p>
+        </div>
+
+        <div class="main-course-card reveal-on-scroll">
+          <div class="main-course-info">
+            <span class="course-badge">Curso de Especialización Principal</span>
+            <h3 class="main-course-title">Tableau Data Analytics + IA</h3>
+            <p class="main-course-desc">El programa definitivo para dominar la analítica visual en Tableau, conectar estructuras de bases de datos complejas e integrar herramientas analíticas de inteligencia artificial generativa.</p>
+
+            <div class="main-course-meta">
+              <div class="meta-item">
+                <span class="meta-icon">⏰</span>
+                <span class="meta-text"><strong>Duración:</strong> 24 horas de cursada</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">📅</span>
+                <span class="meta-text"><strong>Clases:</strong> 12 encuentros (Martes y Jueves)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">💻</span>
+                <span class="meta-text"><strong>Formato:</strong> En Vivo por Zoom</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">🎓</span>
+                <span class="meta-text"><strong>Requisitos:</strong> Sin conocimientos previos</span>
+              </div>
+            </div>
+
+            <a href="#contact" class="btn btn-primary main-course-btn">Consultar inscripción</a>
+          </div>
+
+          <div class="main-course-syllabus">
+            <h4 class="syllabus-title">Estructura Curricular — 12 Módulos</h4>
+            <ol class="syllabus-list">
+              <li><span>Módulo 1:</span> Estructura de Datos y SQL</li>
+              <li><span>Módulo 2:</span> ETL &amp; Data Warehouse</li>
+              <li><span>Módulo 3:</span> Paradigma Tableau</li>
+              <li><span>Módulo 4:</span> Conectar y Preparar Información</li>
+              <li><span>Módulo 5:</span> Propiedades de Datos</li>
+              <li><span>Módulo 6:</span> Gráficas Simples y Avanzadas</li>
+              <li><span>Módulo 7:</span> Organización y Filtros</li>
+              <li><span>Módulo 8:</span> Analytics Avanzado + LOD</li>
+              <li><span>Módulo 9:</span> Formato y Dashboards</li>
+              <li><span>Módulo 10:</span> Dashboards Avanzados y Tableau Public</li>
+              <li><span>Módulo 11:</span> Tableau + IA Generativa</li>
+              <li><span>Módulo 12:</span> Tableau Pulse y Einstein</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="corporate-section-header reveal-on-scroll">
+          <div class="badge">Empresas y Corporativos</div>
+          <h3 class="corporate-title">Cursos Intensivos para Equipos</h3>
+          <p class="corporate-subtitle">Planes de entrenamiento orientados a objetivos empresariales. Mínimo 6 participantes, con fechas y horarios a coordinar a medida de tu organización.</p>
+        </div>
+
+        <div class="corporate-grid">
+          <div class="corporate-card reveal-on-scroll">
+            <h4 class="corp-card-title">Tableau Desktop Inicial</h4>
+            <div class="corp-meta-bar"><span>8 horas</span> · <span>4 encuentros</span></div>
+            <p class="corp-card-text">Primeros pasos en la herramienta, conexiones a datos locales y creación de tus primeros dashboards interactivos básicos.</p>
+          </div>
+          <div class="corporate-card reveal-on-scroll">
+            <h4 class="corp-card-title">Tableau Desktop Avanzado</h4>
+            <div class="corp-meta-bar"><span>8 horas</span> · <span>4 encuentros</span></div>
+            <p class="corp-card-text">Uso de Level of Detail (LOD) expressions, parámetros avanzados y layouts optimizados para mobile. (Requiere Desktop Inicial)</p>
+          </div>
+          <div class="corporate-card reveal-on-scroll">
+            <h4 class="corp-card-title">Tableau Prep Builder</h4>
+            <div class="corp-meta-bar"><span>6 horas</span> · <span>3 encuentros</span></div>
+            <p class="corp-card-text">Estructuración, limpieza intensiva y preparación automatizada de fuentes de datos. (Requiere 3 meses de experiencia en Desktop)</p>
+          </div>
+          <div class="corporate-card reveal-on-scroll">
+            <h4 class="corp-card-title">Tableau Explorer</h4>
+            <div class="corp-meta-bar"><span>6 horas</span> · <span>3 encuentros</span></div>
+            <p class="corp-card-text">Diseñado para analistas de negocio que consumen y crean visualizaciones de forma interactiva directo desde Tableau Server/Cloud.</p>
+          </div>
+          <div class="corporate-card reveal-on-scroll">
+            <h4 class="corp-card-title">Tableau Server</h4>
+            <div class="corp-meta-bar"><span>6 horas</span> · <span>3 encuentros</span></div>
+            <p class="corp-card-text">Administración de sitios corporativos, gestión de usuarios, roles, permisos y configuración básica del gestor de servicios (TSM).</p>
+          </div>
+          <div class="corporate-card reveal-on-scroll">
+            <h4 class="corp-card-title">Tableau Starter</h4>
+            <div class="corp-meta-bar"><span>3 horas</span> · <span>1 encuentro</span></div>
+            <p class="corp-card-text">Consultoría intensiva inicial de licenciamiento, roles de administrador, soporte básico y buenas prácticas iniciales de arquitectura.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Testimonios</div>
+          <h2 class="section-title">Resultados reales</h2>
+          <p class="section-description">Mirá cómo la capacitación transformó el día a día laboral de profesionales en compañías líderes.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal-on-scroll">
+            <div class="rating"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="testimonial-quote">"Empecé sin saber nada de datos y en dos semanas ya estaba haciendo dashboards reales para mi jefe. La dinámica en vivo hace que aprendas sí o sí."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar purple-avatar">MR</div>
+              <div class="author-info">
+                <h4 class="author-name">Martina R.</h4>
+                <p class="author-role">Analista de Operaciones, Grupo Andreani</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal-on-scroll">
+            <div class="rating"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="testimonial-quote">"Llevamos el intensivo de Desktop Avanzado para todo el equipo. En dos días estaban usando LOD expressions y optimizando procesos de cierre mensual."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar blue-avatar">LD</div>
+              <div class="author-info">
+                <h4 class="author-name">Lucas D.</h4>
+                <p class="author-role">Controller Financiero, Farmacity</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal-on-scroll">
+            <div class="rating"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="testimonial-quote">"El módulo de IA me sorprendió. Nunca pensé que iba a poder combinar Tableau Pulse con agentes de IA para entregar resúmenes de métricas en Slack."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar green-avatar">SV</div>
+              <div class="author-info">
+                <h4 class="author-name">Sofía V.</h4>
+                <p class="author-role">Data Analyst, Mercado Libre</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Register Section -->
+    <section id="contact" class="cta-section">
+      <div class="container cta-container">
+        <div class="cta-content reveal-on-scroll">
+          <h2 class="cta-title">¿Listo para transformar tus datos?</h2>
+          <p class="cta-description">Escribinos y sumate a la próxima edición de cursos. Te respondemos en menos de 24 horas y te brindamos asesoramiento personalizado.</p>
+
+          <div class="contact-details-box">
+            <h4 class="contact-box-title">Datos de Contacto</h4>
+            <ul class="contact-details-list">
+              <li>
+                <span class="contact-icon-label">Coordinador:</span>
+                <span class="contact-detail-text">Agustín Vignera</span>
+              </li>
+              <li>
+                <span class="contact-icon-label">WhatsApp:</span>
+                <a href="https://wa.me/5491140034604?text=Hola,%20me%20interesa%20inscribirme%20en%20los%20cursos%20de%20DataSchool." target="_blank" class="contact-detail-link">+54 9 11 4003 4604</a>
+              </li>
+              <li>
+                <span class="contact-icon-label">Email:</span>
+                <a href="mailto:info@bluepatagon.com.ar" class="contact-detail-link">info@bluepatagon.com.ar</a>
+              </li>
+              <li>
+                <span class="contact-icon-label">Horario:</span>
+                <span class="contact-detail-text">Lun–Vie 9–18hs GMT-3</span>
+              </li>
+              <li>
+                <span class="contact-icon-label">Dirección:</span>
+                <span class="contact-detail-text">Av. Córdoba 1324 piso 3, CABA</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact Form Card -->
+        <div class="cta-card reveal-on-scroll">
+          <h3 class="form-title">Consultá vacantes y aranceles</h3>
+
+          <form id="signup-form" novalidate>
+            <div class="input-group">
+              <label for="name" class="input-label">Nombre Completo</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre y apellido" required>
+              </div>
+              <span class="validation-message" id="name-validation-msg" aria-live="polite"></span>
+            </div>
+
+            <div class="input-group">
+              <label for="email" class="input-label">Correo Electrónico</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <input type="email" id="email" name="email" class="form-input" placeholder="ejemplo@correo.com" autocomplete="username" required inputmode="email">
+              </div>
+              <span class="validation-message" id="email-validation-msg" aria-live="polite"></span>
+            </div>
+
+            <div class="input-group">
+              <label for="phone" class="input-label">Celular / WhatsApp</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+54 9 11 1234 5678" autocomplete="tel" required inputmode="tel">
+              </div>
+              <span class="validation-message" id="phone-validation-msg" aria-live="polite"></span>
+            </div>
+
+            <div class="input-group">
+              <label for="reference" class="input-label">¿Cómo nos conociste?</label>
+              <div class="select-wrapper">
+                <select id="reference" name="reference" class="form-input select-input" required>
+                  <option value="" disabled selected>Seleccioná una opción</option>
+                  <option value="Google">Buscador Google</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Recomendacion">Recomendación</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Otro">Otro medio</option>
+                </select>
+              </div>
+              <span class="validation-message" id="reference-validation-msg" aria-live="polite"></span>
+            </div>
+
+            <div class="input-group">
+              <label for="interest-course" class="input-label">¿Qué curso te interesa?</label>
+              <div class="select-wrapper">
+                <select id="interest-course" name="interest-course" class="form-input select-input" required>
+                  <option value="" disabled selected>Seleccioná un curso</option>
+                  <option value="Tableau Data Analytics + IA">Tableau Data Analytics + IA (Principal)</option>
+                  <option value="Tableau Desktop Inicial">Tableau Desktop Inicial (Corp)</option>
+                  <option value="Tableau Desktop Avanzado">Tableau Desktop Avanzado (Corp)</option>
+                  <option value="Tableau Prep Builder">Tableau Prep Builder (Corp)</option>
+                  <option value="Tableau Explorer">Tableau Explorer (Corp)</option>
+                  <option value="Tableau Server">Tableau Server (Corp)</option>
+                  <option value="Tableau Starter">Tableau Starter (Corp)</option>
+                </select>
+              </div>
+              <span class="validation-message" id="course-validation-msg" aria-live="polite"></span>
+            </div>
+
+            <div class="input-group">
+              <label for="message" class="input-label">Mensaje (Opcional)</label>
+              <textarea id="message" name="message" class="form-input textarea-input" placeholder="Ingresá tus comentarios o preguntas adicionales..." rows="3"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary btn-block">
+              <span class="btn-text">Enviar consulta</span>
+              <svg class="loading-spinner hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="8"/>
+              </svg>
+            </button>
+          </form>
+
+          <div id="success-feedback" class="success-feedback hidden" aria-live="assertive">
+            <div class="success-icon-wrapper">
+              <svg class="success-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h4 class="success-title">¡Consulta Enviada!</h4>
+            <p class="success-text">Te responderemos en menos de 24 horas. Para acelerar tu inscripción, podés iniciar un chat directo por WhatsApp con nuestro coordinador.</p>
+            <a id="whatsapp-direct-link" href="#" target="_blank" class="btn btn-secondary btn-block">
+              <span>Chatear por WhatsApp</span>
+            </a>
+            <button id="reset-form-btn" class="btn btn-outline btn-sm" style="margin-top: 1rem;">Volver al formulario</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <img src="images/logo-white.png" class="logo-img" alt="DataSchool">
+        </a>
+        <p class="footer-tagline">Tableau Data Analytics + IA con instructores certificados.</p>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Secciones</h4>
+          <ul>
+            <li><a href="#why-us">Por qué DataSchool</a></li>
+            <li><a href="#courses">Cursos</a></li>
+            <li><a href="#testimonials">Testimonios</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Contacto</h4>
+          <ul>
+            <li><a href="mailto:info@bluepatagon.com.ar">info@bluepatagon.com.ar</a></li>
+            <li><a href="https://wa.me/5491140034604" target="_blank">Agustín Vignera</a></li>
+            <li>Av. Córdoba 1324 CABA</li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Legal</h4>
+          <ul>
+            <li><a href="#">Términos</a></li>
+            <li><a href="#">Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p class="copyright">&copy; 2025 DataSchool &amp; Blue Patagon. Todos los derechos reservados. Formación líder en Tableau.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
